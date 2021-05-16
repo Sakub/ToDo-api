@@ -4,8 +4,8 @@
 - [node.js]
 
 ### Setup
-- Clone this repository: `git clone https::github.com/Sakub/toDo-api.git`
-- Go to the repository: `cd toDo-api`
+- Clone this repository: `git clone https::github.com/Sakub/ToDo-api.git`
+- Go to the repository: `cd ToDo-api`
 - Install needed packages: `npm install`
 - Run a project: `npm run start` 
 
