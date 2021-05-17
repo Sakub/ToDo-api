@@ -12,12 +12,31 @@ const pool = mysql.createPool({
 let userDb = {}
 
 userDb.getToDos = () => {
-    return new Promise((reject, resolve) => {
+    return new Promise((resolve, reject) => {
         pool.query('SELECT * FROM todos', (err, results) => {
             if (err) return reject(`error: ${err}`)
-            else return resolve(results)
+            
+            return resolve(results)
         })
     })
 }
 
+userDb.createToDo = name => {
+    return new Promise((resolve, reject) => {
+        pool.query(`INSERT INTO todos (name) VALUES ("${name}")`, (err, result) => {
+            if (err) return reject(`error: ${err}`)
+
+            return resolve(result)
+        })
+    })
+}
+userDb.getToDo = id => {
+    return new Promise((resolve, reject) => {
+        pool.query(`SELECT * FROM todos WHERE id = ${id}`, (err, result) => {
+            if(err) return reject(`error: ${err}`)
+
+            return resolve(result)
+        })
+    })
+}
 module.exports = userDb
